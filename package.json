@@ -1,0 +1,48 @@
+{
+  "name": "globo-rural",
+  "version": "1.0.0",
+  "description": "A for fun project to make use of my studies of making executable node packages",
+  "main": "./src/index.js",
+  "scripts": {
+    "lint": "npx eslint src/*",
+    "prebuild": "rm -rf ./dist",
+    "build": "npx tsc -p tsconfig.json",
+    "build:watch": "npx tsc --watch",
+    "bump:version": "npx standard-version && git push --follow-tags origin master",
+    "publish:package": "npm run build && npm run bump:version && npm publish",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuizJarduli/globo-rural.git"
+  },
+  "keywords": [
+    "globo",
+    "rural",
+    "cli",
+    "global",
+    "globo rural",
+    "globo rural cli",
+    "for fun",
+    "node",
+    "audio",
+    "agro é pop"
+  ],
+  "author": "Luiz Jarduli",
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/LuizJarduli/globo-rural#readme",
+  "bugs": {
+    "url": "https://github.com/LuizJarduli/globo-rural/issues"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.17.0",
+    "@typescript-eslint/eslint-plugin": "8.18.2",
+    "@typescript-eslint/parser": "8.18.2",
+    "eslint": "9.17.0",
+    "eslint-config-prettier": "10.0.1",
+    "eslint-plugin-prettier": "5.2.1",
+    "husky": "^9.1.7",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2"
+  }
+}
