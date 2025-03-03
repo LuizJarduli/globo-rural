@@ -1,5 +1,6 @@
 import { AudioPlayer } from './AudioPlayer.js';
 import { AudioPlayerLinuxImpl } from './AudioPlayerLinuxImpl.js';
+import { AudioPlayerWindowsImpl } from './AudioPlayerWindowsImpl.js';
 
 enum Platform {
 	Linux = 'linux',
@@ -22,7 +23,7 @@ export class AudioPlayerPlatformFactory {
 		return {
 			[Linux]: new AudioPlayerLinuxImpl(),
 			[Mac]: new AudioPlayerLinuxImpl(),
-			[Windows]: new AudioPlayerLinuxImpl(),
+			[Windows]: new AudioPlayerWindowsImpl(),
 		}[AudioPlayerPlatformFactory.platform];
 	}
 }
