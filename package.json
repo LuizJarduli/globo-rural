@@ -8,11 +8,12 @@
     "start": "npx tsx ./src/index.ts",
     "lint": "npx eslint src/**/*.ts",
     "prebuild": "rm -rf ./dist",
-    "build": "npx tsc -p tsconfig.json",
+    "build": "npx tsc -p tsconfig.json && npm run copy:assets",
     "build:watch": "npx tsc --watch",
     "bump:version": "npx standard-version && git push --follow-tags origin master",
     "publish:package": "npm run build && npm run bump:version && npm publish",
-    "prepare": "husky"
+    "prepare": "husky",
+    "copy:assets": "cp -r src/assets ./dist/assets"
   },
   "repository": {
     "type": "git",
