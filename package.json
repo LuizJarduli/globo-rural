@@ -37,11 +37,8 @@
   "bugs": {
     "url": "https://github.com/LuizJarduli/globo-rural/issues"
   },
-  "cli": {
-    "name": "globo-rural",
-    "version": "1.0.0",
-    "description": "A for fun project to make use of my studies of making executable node packages",
-    "bin": "./dist/index.js"
+  "bin": {
+    "globo-rural": "./dist/index.js"
   },
   "devDependencies": {
     "@eslint/js": "9.17.0",
