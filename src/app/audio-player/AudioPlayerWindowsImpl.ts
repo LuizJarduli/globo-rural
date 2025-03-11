@@ -3,14 +3,11 @@ import { spawn } from 'child_process';
 
 export class AudioPlayerWindowsImpl implements AudioPlayer {
 	public play(source: string): void {
-		// Use PowerShell to play the audio file
-		const powershellCommand = spawn('powershell.exe', [
-			'-c',
-			`Add-Type -AssemblyName System.Windows.Forms; $player = New-Object System.Media.SoundPlayer "${source}"; $player.PlaySync();`,
-		]);
+		// Use Windows Media Player CLI to play the audio file
+		const wmplayer = spawn('cmd.exe', ['/c', `start wmplayer "${source}" /play /close`]);
 
-		powershellCommand.stderr.on('data', this.onError);
-		powershellCommand.on('close', this.onClose);
+		wmplayer.stderr.on('data', this.onError);
+		wmplayer.on('close', this.onClose);
 	}
 
 	public onError(error: unknown): void {
@@ -19,7 +16,6 @@ export class AudioPlayerWindowsImpl implements AudioPlayer {
 
 	public onClose(code: number): void {
 		if (code == 0) return;
-
 		console.log(`Child process exited with code: ${code}`);
 	}
 }
