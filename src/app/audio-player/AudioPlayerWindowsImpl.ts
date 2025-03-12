@@ -4,7 +4,8 @@ import { spawn } from 'child_process';
 export class AudioPlayerWindowsImpl implements AudioPlayer {
 	public play(source: string): void {
 		// Use Windows Media Player CLI to play the audio file
-		const wmplayer = spawn('cmd.exe', ['/c', `start wmplayer "${source}" /play /close`]);
+		// REFACTOR: Create a VBScript to play entirely headless
+		const wmplayer = spawn('cmd.exe', ['/c', `start wmplayer ${source} /play /close`]);
 
 		wmplayer.stderr.on('data', this.onError);
 		wmplayer.on('close', this.onClose);
