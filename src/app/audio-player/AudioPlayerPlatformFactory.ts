@@ -1,4 +1,5 @@
 import { AudioPlayer } from './AudioPlayer.js';
+import { AudioPlayerDarwinImpl } from './AudioPlayerDarwinImpl.js';
 import { AudioPlayerLinuxImpl } from './AudioPlayerLinuxImpl.js';
 import { AudioPlayerWindowsImpl } from './AudioPlayerWindowsImpl.js';
 
@@ -22,7 +23,7 @@ export class AudioPlayerPlatformFactory {
 
 		return {
 			[Linux]: new AudioPlayerLinuxImpl(),
-			[Mac]: new AudioPlayerLinuxImpl(),
+			[Mac]: new AudioPlayerDarwinImpl(),
 			[Windows]: new AudioPlayerWindowsImpl(),
 		}[AudioPlayerPlatformFactory.platform];
 	}
