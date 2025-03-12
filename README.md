@@ -1,4 +1,4 @@
-# globo-rural-cli
+# globo-rural
 
 A simple command line interface that provides 'educational' entertainment through terminal commands.
 
